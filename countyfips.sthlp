@@ -1,5 +1,5 @@
 {smcl}
-{* 22december2017}
+{* *! Version 0.9.0 06212018}
 {title:Title}
 
 {p 4 8}{cmd:countyfips} {hline 2} Stata program for merging U.S. county identifiers
@@ -102,6 +102,10 @@ included. Using {cmd:countyfips} with the {cmd:name} option will require extreme
 particular formatting. Additionally, only the {cmd:statefips} option will work
 when merging with {cmd:name}.
 
+{pstd}{cmd:countyfips} uses the more recent FIPS code for Miami-Dade county
+(12086) rather than the FIPS code for Dade county (12025). The Census state
+(10) and county (13) codes remain unchanged.
+
 {title:Author}
 
 {pstd}Christopher B. Goodman, School of Public Administration,
@@ -110,4 +114,4 @@ University of Nebraska at Omaha {p_end}
 
 {title:Also see}
 
-{pstd} {browse "help statastates":statastates} (if installed)
+{pstd} {help statastates} (if installed)

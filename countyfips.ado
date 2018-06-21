@@ -58,27 +58,34 @@ program define countyfips
 
     else if "`fips'" != "" {
       local fips "`fips'"
-      rename `fips' cofips
-      merge m:1 cofips using "`c(sysdir_personal)'countyfips_data/countyfips.dta", nogen keep(match master)
-      rename cofips `fips'
+      rename `fips' fips
+      merge m:1 fips using "`c(sysdir_personal)'countyfips_data/countyfips.dta", nogen keep(match master)
+      rename fips `fips'
     }
 
     else if "`statefips'" != "" & "`countyfips'" != "" {
       local statefips "`statefips'"
       local countyfips "`countyfips'"
       rename `statefips' state_fips
-      rename `countyfips' co_fips
-      merge m:1 state_fips co_fips using "`c(sysdir_personal)'countyfips_data/countyfips.dta", nogen keep(match master)
+      rename `countyfips' county_fips
+      merge m:1 state_fips county_fips using "`c(sysdir_personal)'countyfips_data/countyfips.dta", nogen keep(match master)
       rename state_fips `statefips'
-      rename co_fips `countyfips'
+      rename county_fips `countyfips'
     }
 
     else if "`statecode'" != "" & "`countycode'" != "" {
+      preserve
+      clear
+      cap quietly use "`c(sysdir_personal)'countyfips_data/countyfips.dta"
+      quietly drop if county_code==.
+      tempfile countyfips_datatemp
+      cap save `countyfips_datatemp'
+      restore
       local statecode "`statecode'"
       local countycode "`countycode'"
       rename `statecode' state_code
       rename `countycode' county_code
-      merge m:1 state_code county_code using "`c(sysdir_personal)'countyfips_data/countyfips.dta", nogen keep(match master)
+      merge m:1 state_code county_code using `countyfips_datatemp', nogen keep(match master)
       rename state_code `statecode'
       rename county_code `countycode'
     }
@@ -109,27 +116,34 @@ program define countyfips
 
   else if "`fips'" != "" {
     local fips "`fips'"
-    rename `fips' cofips
-    merge m:1 cofips using "`c(sysdir_personal)'countyfips_data/countyfips.dta"
-    rename cofips `fips'
+    rename `fips' fips
+    merge m:1 fips using "`c(sysdir_personal)'countyfips_data/countyfips.dta"
+    rename fips `fips'
   }
 
   else if "`statefips'" != "" & "`countyfips'" != "" {
     local statefips "`statefips'"
     local countyfips "`countyfips'"
     rename `statefips' state_fips
-    rename `countyfips' co_fips
-    merge m:1 state_fips co_fips using "`c(sysdir_personal)'countyfips_data/countyfips.dta"
+    rename `countyfips' county_fips
+    merge m:1 state_fips county_fips using "`c(sysdir_personal)'countyfips_data/countyfips.dta"
     rename state_fips `statefips'
-    rename co_fips `countyfips'
+    rename county_fips `countyfips'
   }
 
   else if "`statecode'" != "" & "`countycode'" != "" {
+    preserve
+    clear
+    cap quietly use "`c(sysdir_personal)'countyfips_data/countyfips.dta"
+    quietly drop if county_code==.
+    tempfile countyfips_datatemp
+    cap save `countyfips_datatemp'
+    restore
     local statecode "`statecode'"
     local countycode "`countycode'"
     rename `statecode' state_code
     rename `countycode' county_code
-    merge m:1 state_code county_code using "`c(sysdir_personal)'countyfips_data/countyfips.dta"
+    merge m:1 state_code county_code using `countyfips_datatemp'
     rename state_code `statecode'
     rename county_code `countycode'
   }

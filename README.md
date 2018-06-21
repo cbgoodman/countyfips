@@ -12,7 +12,7 @@ countyfips is a simple Stata crosswalk program for adding various county-level i
 net install countyfips, from(https://raw.github.com/cbgoodman/countyfips/master/) replace
 ```
 
-**Github (for Stata v12.1+):** Download the zipped file of this repository. Unzip on your local computer. Run the following code via the Stata command line replacing <local source> with the location of the unzipped repository on your computer.
+**Github (for Stata v12.1+):** Download the [zipped file](https://github.com/cbgoodman/countyfips/archive/master.zip) of this repository. Unzip on your local computer. Run the following code via the Stata command line replacing <local source> with the location of the unzipped repository on your computer.
 ```Stata
 net install countyfips, from(<local source>) replace
 ```
@@ -55,6 +55,7 @@ This will keep matched observations and unmatched master observations.
 * Using `countyfips` with the `name` option requires specific formatting of the `name` variable. County names must *not* include "county" after the name. County names beginning with "Saint" such as Saint Louis must be abbreviated to "St."
 * FIPS codes are available for U.S counties, county equivalents, and territories. Census codes are only available for counties or county equivalents (such as independent cities).
 * FIPS codes for Virginia independent cities as well as merged county and independent cities (as is the practice for some areas in BEA data) are included. Using `countyfips` with the `name` option will require extremely particular formatting. Additionally, only the `statefips` option will work when merging with `name`.
+* `countyfips` uses the more recent FIPS code for Miami-Dade county (12086) rather than the FIPS code for Dade county (12025). The Census state (10) and county (13) codes remain unchanged.
 
 ## Bugs
 Please report any bugs [here](https://github.com/cbgoodman/countyfips/issues).
