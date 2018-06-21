@@ -57,3 +57,4 @@ This will keep matched observations and unmatched master observations.
 * FIPS codes for Virginia independent cities as well as merged county and independent cities (as is the practice for some areas in BEA data) are included. Using `countyfips` with the `name` option will require extremely particular formatting. Additionally, only the `statefips` option will work when merging with `name`.
 
 ## Bugs
+Please report any bugs [here](https://github.com/cbgoodman/countyfips/issues).
