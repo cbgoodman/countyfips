@@ -1,0 +1,12 @@
+v 3
+d countyfips: Stata program for merging U.S. county identifiers
+d
+d Requires: Stata version 12.1+
+d
+d Distribution-Date: NA
+d
+d Author: Christopher B. Goodman
+d Contact: cbgoodman@unomaha.edu
+d
+d
+p countyfips Stata program for merging U.S. county identifiers
