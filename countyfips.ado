@@ -74,12 +74,12 @@ program define countyfips
 	  }
 
     else if "`statecode'" != "" & "`countycode'" != "" {
-	    local statecode "`statecode'"
+      local statecode "`statecode'"
       local countycode "`countycode'"
-	    rename `statecode' state_code
+      rename `statecode' state_code
       rename `countycode' county_code
-	    merge m:1 state_code county_code using "`c(sysdir_personal)'countyfips_data/countyfips.dta", nogen keep(match master)
-	    rename state_code `statecode'
+      merge m:1 state_code county_code using "`c(sysdir_personal)'countyfips_data/countyfips.dta", nogen keep(match master)
+      rename state_code `statecode'
       rename county_code `countycode'
 	  }
 
