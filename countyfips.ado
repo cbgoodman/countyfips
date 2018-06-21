@@ -16,8 +16,8 @@ program define countyfips
 
     if _rc==601 {
       preserve
-	    clear
-	    quietly findfile countyfips_data.ado
+      clear
+      quietly findfile countyfips_data.ado
       cap insheet using "`r(fn)'", tab
       label var fips "5-digit FIPS Code"
       label var county_name "County Name"
@@ -26,11 +26,11 @@ program define countyfips
       label var county_fips "County FIPS Code"
       label var state_code "State Census Code"
       label var county_code "County Census Code"
-	    cap mkdir "`c(sysdir_personal)'"
-	    cap mkdir "`c(sysdir_personal)'countyfips_data"
-	    cap save "`c(sysdir_personal)'countyfips_data/countyfips.dta"
-	    restore
-	  }
+      cap mkdir "`c(sysdir_personal)'"
+      cap mkdir "`c(sysdir_personal)'countyfips_data"
+      cap save "`c(sysdir_personal)'countyfips_data/countyfips.dta"
+      restore
+    }
 
   if "`nogenerate'" != "" {
 
