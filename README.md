@@ -1,9 +1,9 @@
 # countyfips
-countyfips is a simple Stata crosswalk program for adding various county-level identifiers (name, FIPS, Census codes) that may be missing from your dataset. The purpose of this program is to facilitate merging datasets that do not share a common identifier.
+`countyfips` is a simple Stata crosswalk program for adding various county-level identifiers (name, FIPS, Census codes) that may be missing from your dataset. The purpose of this program is to facilitate merging datasets that do not share a common identifier.
 
 ## Prerequisites
 
-**Stata:** countyfips is compatible with Stata version 12.1+. It may be compatible with previous versions, but it has not been tested in those environments.
+**Stata:** `countyfips` is compatible with Stata version 12.1+. It may be compatible with previous versions, but it has not been tested in those environments.
 
 ## Installation
 
