@@ -22,32 +22,32 @@ net install countyfips, from(<local source>) replace
 `countyfips` offers four methods of merging using either county names, five-digit county FIPS codes, the combination of two-digit state FIPS and three-digit county FIPS codes, or the combination of two-digit state Census codes and three-digit county Census codes.
 
 Merging with `name` where *county* is the name of county requires either `statefips` or `statecode` to be specified
-```stata
+```Stata
 . countyfips, name(county) statefips(stfips)
 ```
 or
-```stata
+```Stata
 . countyfips, name(county) statecode(stcode)
 ```
 
 Merging with `fips`
-```stata
+```Stata
 . countyfips, fips(county)
 ```
 
 Merging with `statefips` and `countyfips`
-```stata
+```Stata
 . countyfips, statefips(stfips) countyfips(cofips)
 ```
 
 Merging with `statecode` and `countycode`
-```stata
+```Stata
 . countyfips, statecode(stcode) countycode(cocode)
 ```
 
 By default, `countyfips` will generate a new variable, `_merge`, to indicate the merged results.  If you do not want to create this variable, specify `nogenerate`.
 This will keep matched observations and unmatched master observations.
-```stata
+```Stata
 . countyfips, fips(county) nogenerate
 ```
 
