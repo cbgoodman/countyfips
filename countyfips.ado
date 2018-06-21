@@ -57,19 +57,19 @@ program define countyfips
     }
 
     else if "`fips'" != "" {
-	    local fips "`fips'"
-	    rename `fips' cofips
-	    merge m:1 cofips using "`c(sysdir_personal)'countyfips_data/countyfips.dta", nogen keep(match master)
-	    rename cofips `fips'
+      local fips "`fips'"
+      rename `fips' cofips
+      merge m:1 cofips using "`c(sysdir_personal)'countyfips_data/countyfips.dta", nogen keep(match master)
+      rename cofips `fips'
 	  }
 
     else if "`statefips'" != "" & "`countyfips'" != "" {
-	    local statefips "`statefips'"
+      local statefips "`statefips'"
       local countyfips "`countyfips'"
-	    rename `statefips' state_fips
+      rename `statefips' state_fips
       rename `countyfips' co_fips
-	    merge m:1 state_fips co_fips using "`c(sysdir_personal)'countyfips_data/countyfips.dta", nogen keep(match master)
-	    rename state_fips `statefips'
+      merge m:1 state_fips co_fips using "`c(sysdir_personal)'countyfips_data/countyfips.dta", nogen keep(match master)
+      rename state_fips `statefips'
       rename co_fips `countyfips'
 	  }
 
