@@ -18,7 +18,7 @@ program define countyfips
       preserve
 	    clear
 	    quietly findfile countyfips_data.ado
-	    cap insheet using "`r(fn)'", tab
+      cap insheet using "`r(fn)'", tab
       label var fips "5-digit FIPS Code"
       label var county_name "County Name"
       label var state_abb "State Abbreviation"
