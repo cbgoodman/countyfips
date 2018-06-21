@@ -61,7 +61,7 @@ program define countyfips
       rename `fips' cofips
       merge m:1 cofips using "`c(sysdir_personal)'countyfips_data/countyfips.dta", nogen keep(match master)
       rename cofips `fips'
-	  }
+    }
 
     else if "`statefips'" != "" & "`countyfips'" != "" {
       local statefips "`statefips'"
@@ -71,7 +71,7 @@ program define countyfips
       merge m:1 state_fips co_fips using "`c(sysdir_personal)'countyfips_data/countyfips.dta", nogen keep(match master)
       rename state_fips `statefips'
       rename co_fips `countyfips'
-	  }
+    }
 
     else if "`statecode'" != "" & "`countycode'" != "" {
       local statecode "`statecode'"
@@ -81,7 +81,7 @@ program define countyfips
       merge m:1 state_code county_code using "`c(sysdir_personal)'countyfips_data/countyfips.dta", nogen keep(match master)
       rename state_code `statecode'
       rename county_code `countycode'
-	  }
+    }
 
   }
 
