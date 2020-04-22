@@ -1,12 +1,12 @@
 v 3
 d countyfips. Stata program for merging U.S. county identifiers
-d {bf:Christopher B. Goodman, School of Public Administration, University of Nebraska at Omaha}
+d {bf:Christopher B. Goodman, School of Public and Global Affairs, Northern Illinois University}
 d
 d After installation, see help {bf:countyfips}.
 d
-d Distribution-Date: 06212018
+d Distribution-Date: 20200422
 d
-d Support: email cbgoodman@unomaha.edu
+d Support: email cgoodman@niu.edu
 d
 f countyfips.ado
 f countyfips.sthlp

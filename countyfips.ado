@@ -1,9 +1,9 @@
 /*
 countyfips: Stata program for merging U.S. county identifiers
 Author: Christopher B. Goodman
-Contact: cbgoodman@unomaha.edu
+Contact: cgoodman@niu.edu
 Date: NA
-Version: 0.9.0
+Version: 0.9.1
 */
 
 capture program drop countyfips

@@ -1,5 +1,5 @@
 {smcl}
-{* *! Version 0.9.0 06212018}
+{* *! Version 0.9.1 20200422}
 {title:Title}
 
 {p 4 8}{cmd:countyfips} {hline 2} Stata program for merging U.S. county identifiers
@@ -108,9 +108,9 @@ when merging with {cmd:name}.
 
 {title:Author}
 
-{pstd}Christopher B. Goodman, School of Public Administration,
-University of Nebraska at Omaha {p_end}
-{pstd}{browse "mailto:cbgoodman@unomaha.edu":cbgoodman@unomaha.edu}{break} {p_end}
+{pstd}Christopher B. Goodman, School of Public and Global Affairs,
+Northern Illinois University {p_end}
+{pstd}{browse "mailto:cgoodman@niu.edu":cgoodman@niu.edu}{break} {p_end}
 
 {title:Also see}
 
