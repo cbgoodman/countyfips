@@ -52,17 +52,17 @@ This will keep matched observations and unmatched master observations.
 ```
 
 ## Common Issues
-The first time you run `countyfips` it creates a data file that lives in your personal ado directory (by default, Windows: `c:/ado/`; macOS: `~/Documents/Stata/ado`). With macOS in particular, the data file is created from `countyfips_data.ado` that lives in `~/Library/Application Support/Stata`. In versions of OSX 10.7 and newer, this folder may be protected, lacking sufficient read-write permissions for `countyfips` to create the necessary file. If you are receiving an error that `/Users/foo/Documents/Stata/ado/personal/countyfips_data/countyfips.dta not found`, please check your permissions.
+The first time you run `countyfips` it creates a data file that lives in your personal ado directory (by default, Windows: `c:\ado\`; macOS: `~/Documents/Stata/ado`). With macOS in particular, the data file is created from `countyfips_data.ado` that lives in `~/Library/Application Support/Stata`. In versions of OSX 10.7 and newer, this folder may be protected, lacking sufficient read-write permissions for `countyfips` to create the necessary file. If you are receiving an error that *`/Users/foo/Documents/Stata/ado/personal/countyfips_data/countyfips.dta` not found*, please check your permissions.
 
 To find the relevant folder to check, run the following code and ensure your user account has read-write permissions for the relevant folders (see [here](https://www.stata.com/support/faqs/mac/cannot-write-in-directory/) for instructions on how to change folder permissions).  
 
 ```Stata
-sysdir
+. sysdir
 ```
 The **PLUS** folder must have read-write permissions. Once the permissions are changed, you can run `countyfips` with no arguments to create the necessary file. To confirm the necessary file exists, run the following code:
 
 ```Stata
-findfile countyfips.dta, path("`c(sysdir_personal)'countyfips_data/")
+. findfile countyfips.dta, path("`c(sysdir_personal)'countyfips_data/")
 ```
 If it returns with no error, you are ready to go.
 

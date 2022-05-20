@@ -87,22 +87,32 @@ This will keep matched observations and unmatched master observations.{p_end}
 
 {phang2}{cmd:. countyfips, fips(}{it:county}{cmd:) nogenerate}{p_end}
 
+{title:Common Issues}
+
+{pstd}
+The first time you run {cmd:countyfips} it creates a data file that lives in your personal ado directory (by default, Windows: "c:\ado\"; macOS: "~/Documents/Stata/ado"). In versions of OSX 10.7 and newer, this folder may be protected, lacking sufficient read-write permissions for {cmd:countyfips} to create the necessary file. If you are receiving an error, please check your permissions. See {browse "https://github.com/cbgoodman/countyfips#Common-Issues":here} for more information.
+
 {title:Limitations}
-{pstd}Using {cmd:countyfips} with the {cmd:name} option requires specific
+
+{pstd}
+Using {cmd:countyfips} with the {cmd:name} option requires specific
 formatting of the {cmd:name} variable. County names must {it:not} include
 "county" after the name. County names beginning with "Saint" such as
 Saint Louis must be abbreviated to "St."{p_end}
 
-{pstd}FIPS codes are available for U.S counties, county equivalents, and territories.
+{pstd}
+FIPS codes are available for U.S counties, county equivalents, and territories.
 Census codes are only available for counties or county equivalents (such as independent cities).{p_end}
 
-{pstd}FIPS codes for Virginia independent cities as well as merged county and
+{pstd}
+FIPS codes for Virginia independent cities as well as merged county and
 independent cities (as is the practice for some areas in BEA data) are
 included. Using {cmd:countyfips} with the {cmd:name} option will require extremely
 particular formatting. Additionally, only the {cmd:statefips} option will work
 when merging with {cmd:name}.
 
-{pstd}{cmd:countyfips} uses the more recent FIPS code for Miami-Dade county
+{pstd}
+{cmd:countyfips} uses the more recent FIPS code for Miami-Dade county
 (12086) rather than the FIPS code for Dade county (12025). The Census state
 (10) and county (13) codes remain unchanged.
 
