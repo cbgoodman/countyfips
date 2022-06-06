@@ -52,6 +52,9 @@ This will keep matched observations and unmatched master observations.
 ```
 
 ## Common Issues
+
+### Permissions
+
 The first time you run `countyfips` it creates a data file that lives in your personal ado directory (by default, Windows: `c:\ado\`; macOS: `~/Documents/Stata/ado`). With macOS in particular, the data file is created from `countyfips_data.ado` that lives in `~/Library/Application Support/Stata`. In versions of OSX 10.7 and newer, this folder may be protected, lacking sufficient read-write permissions for `countyfips` to create the necessary file. If you are receiving an error that *`/Users/foo/Documents/Stata/ado/personal/countyfips_data/countyfips.dta` not found*, please check your permissions.
 
 To find the relevant folder to check, run the following code and ensure your user account has read-write permissions for the relevant folders (see [here](https://www.stata.com/support/faqs/mac/cannot-write-in-directory/) for instructions on how to change folder permissions).  
@@ -66,8 +69,17 @@ The **PLUS** folder must have read-write permissions. Once the permissions are c
 ```
 If it returns with no error, you are ready to go.
 
+### Missing Folder
+
+On macOS, you must ensure the `~/Documents/Stata/ado/personal` folder exists. By default, Stata creates the `~/Documents/Stata` folder but none of the sub-directories. If you have eliminated permissions as the issue (in the above example), check if the full sub-directory folder tree exists. If the required folders do not exist, create them and run the following code to confirm the necessary file exists.
+
+```Stata
+. findfile countyfips.dta, path("`c(sysdir_personal)'countyfips_data/")
+```
+If it returns with no error, you are ready to go.
+
 ## Limitations
-* Using `countyfips` with the `name` option requires specific formatting of the `name` variable. County names must *not* include "county" after the name. County names beginning with "Saint" such as Saint Louis must be abbreviated to "St."
+* Using `countyfips` with the `name` option requires specific formatting of the `name` variable. County names must *not* include "county" after the name. County names beginning with "Saint" such as Saint Louis must be abbreviated to "St." or "St" (both are included).
 * FIPS codes are available for U.S counties, county equivalents, and territories. Census codes are only available for counties or county equivalents (such as independent cities).
 * FIPS codes for Virginia independent cities as well as merged county and independent cities (as is the practice for some areas in BEA data) are included. Using `countyfips` with the `name` option will require extremely particular formatting. Additionally, only the `statefips` option will work when merging with `name`.
 * `countyfips` uses the more recent FIPS code for Miami-Dade county (12086) rather than the FIPS code for Dade county (12025). The Census state (10) and county (13) codes remain unchanged.
