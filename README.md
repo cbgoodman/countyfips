@@ -79,7 +79,7 @@ On macOS, you must ensure the `~/Documents/Stata/ado/personal` folder exists. By
 If it returns with no error, you are ready to go.
 
 ## Limitations
-* Using `countyfips` with the `name` option requires specific formatting of the `name` variable. County names must *not* include "county" after the name. County names beginning with "Saint" such as Saint Louis must be abbreviated to "St." or "St" (both are included).
+* Using `countyfips` with the `name` option requires specific formatting of the `name` variable. County names must *not* include "county" after the name. County names beginning with "Saint" such as Saint Louis must be abbreviated to "St" (no period). County names with apostrophes are included ("PRINCE GEORGE'S" County, MD) 
 * FIPS codes are available for U.S counties, county equivalents, and territories. Census codes are only available for counties or county equivalents (such as independent cities).
 * FIPS codes for Virginia independent cities as well as merged county and independent cities (as is the practice for some areas in BEA data) are included. Using `countyfips` with the `name` option will require extremely particular formatting. Additionally, only the `statefips` option will work when merging with `name`.
 * `countyfips` uses the more recent FIPS code for Miami-Dade county (12086) rather than the FIPS code for Dade county (12025). The Census state (10) and county (13) codes remain unchanged.

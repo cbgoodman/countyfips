@@ -98,7 +98,8 @@ The first time you run {cmd:countyfips} it creates a data file that lives in you
 Using {cmd:countyfips} with the {cmd:name} option requires specific
 formatting of the {cmd:name} variable. County names must {it:not} include
 "county" after the name. County names beginning with "Saint" such as
-Saint Louis must be abbreviated to "St."{p_end}
+Saint Louis must be abbreviated to "St" (no period). County names with 
+apostrophes are included ("PRINCE GEORGE'S" County, MD) {p_end}
 
 {pstd}
 FIPS codes are available for U.S counties, county equivalents, and territories.
