@@ -17,11 +17,11 @@ net install countyfips, from(https://raw.github.com/cbgoodman/countyfips/master/
 net install countyfips, from(<local source>) replace
 ```
 
-## Using countyfips
+## Using `countyfips`
 
 `countyfips` offers four methods of merging using either county names, five-digit county FIPS codes, the combination of two-digit state FIPS and three-digit county FIPS codes, or the combination of two-digit state Census codes and three-digit county Census codes.
 
-Merging with `name` where *county* is the name of county requires either `statefips` or `statecode` to be specified
+Merging with `name` where *county* is the name of variable containing county name as a string requires either `statefips` or `statecode` to be specified
 ```Stata
 . countyfips, name(county) statefips(stfips)
 ```
@@ -30,17 +30,17 @@ or
 . countyfips, name(county) statecode(stcode)
 ```
 
-Merging with `fips`
+Merging with `fips`, where *countyfips* is the name of the variable containing the 5-digit FIPS code
 ```Stata
 . countyfips, fips(county)
 ```
 
-Merging with `statefips` and `countyfips`
+Merging with `statefips` and `countyfips`, where *stfips* and *cofips* are the names of the variables containing the 2-digit state FIPS and 3-digit county FIPS codes
 ```Stata
 . countyfips, statefips(stfips) countyfips(cofips)
 ```
 
-Merging with `statecode` and `countycode`
+Merging with `statecode` and `countycode`, where *stcode* and *cocode* are the names of the variables containing the U.S. Census Bureau Census of Governments state and county codes
 ```Stata
 . countyfips, statecode(stcode) countycode(cocode)
 ```
@@ -49,6 +49,20 @@ By default, `countyfips` will generate a new variable, `_merge`, to indicate the
 This will keep matched observations and unmatched master observations.
 ```Stata
 . countyfips, fips(county) nogenerate
+```
+
+## Data Examples:
+
+Merging with 5-digit FIPS codes
+```Stata
+. webuse texas_ue.dta
+. countyfips, fips(fips)
+```
+
+Merging with 2-digit state FIPS and 3-digit county FIPS codes
+```Stata 
+. webuse homicide1990.dta
+. countyfips, countyfips(cfips) statefips(sfips)
 ```
 
 ## Common Issues

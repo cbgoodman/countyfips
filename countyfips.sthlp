@@ -67,7 +67,8 @@ observations and unmatched master observations.
 five-digit county FIPS codes, or the combination of two-digit state FIPS and three-digit
 county FIPS codes.{p_end}
 
-{pstd}Merging with {cmd:name},  where {it:county} is the name of variable containing county name as a string{p_end}
+{pstd}Merging with {cmd:name},  where {it:county} is the name of variable containing county name as a string requires either {cmd:statefips} or {cmd:statecode} to be specified{p_end}
+
 {phang2}{cmd:. countyfips, name(}{it:county}{cmd:) statefips(}{it:stfips}{cmd:)}{p_end}
 {pstd}or{p_end}
 {phang2}{cmd:. countyfips, name(}{it:county}{cmd:) statecode(}{it:stcode}{cmd:)}{p_end}
