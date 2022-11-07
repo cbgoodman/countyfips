@@ -91,12 +91,12 @@ This will keep matched observations and unmatched master observations.{p_end}
 {title:Data Examples:}
 
 {pstd}Merging with 5-digit FIPS codes{p_end}
-{phang2}{cmd: webuse texas_ue.dta}{p_end}
-{phang2}{cmd: countyfips, fips(fips)}{p_end}
+{phang2}{cmd:. webuse texas_ue.dta}{p_end}
+{phang2}{cmd:. countyfips, fips(fips)}{p_end}
 
 {pstd}Merging with 2-digit state FIPS and 3-digit county FIPS codes{p_end}
-{phang2}{cmd: webuse homicide1990.dta}{p_end}
-{phang2}{cmd: countyfips, countyfips(cfips) statefips(sfips)}{p_end}
+{phang2}{cmd:. webuse homicide1990.dta}{p_end}
+{phang2}{cmd:. countyfips, countyfips(cfips) statefips(sfips)}{p_end}
 
 {title:Common Issues}
 
