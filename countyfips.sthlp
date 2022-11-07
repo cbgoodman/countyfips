@@ -1,5 +1,5 @@
 {smcl}
-{* *! Version 0.9.1 20200422}
+{* *! Version 1.0 20221107}
 {title:Title}
 
 {p 4 8}{cmd:countyfips} {hline 2} Stata program for merging U.S. county identifiers
@@ -67,18 +67,18 @@ observations and unmatched master observations.
 five-digit county FIPS codes, or the combination of two-digit state FIPS and three-digit
 county FIPS codes.{p_end}
 
-{pstd}Merging with {cmd:name} where {it:county} is the name of county{p_end}
+{pstd}Merging with {cmd:name},  where {it:county} is the name of variable containing county name as a string{p_end}
 {phang2}{cmd:. countyfips, name(}{it:county}{cmd:) statefips(}{it:stfips}{cmd:)}{p_end}
 {pstd}or{p_end}
 {phang2}{cmd:. countyfips, name(}{it:county}{cmd:) statecode(}{it:stcode}{cmd:)}{p_end}
 
-{pstd}Merging with {cmd:fips}{p_end}
-{phang2}{cmd:. countyfips, fips(}{it:county}{cmd:)}{p_end}
+{pstd}Merging with {cmd:fips}, where {it:countyfips} is the name of the variable containing the 5-digit FIPS code{p_end}
+{phang2}{cmd:. countyfips, fips(}{it:countyfips}{cmd:)}{p_end}
 
-{pstd}Merging with {cmd:statefips} and {cmd:countyfips}{p_end}
+{pstd}Merging with {cmd:statefips} and {cmd:countyfips}, where {it:stfips} and {it:cofips} are the names of the variables containing the 2-digit state FIPS and 3-digit county FIPS codes{p_end}
 {phang2}{cmd:. countyfips, statefips(}{it:stfips}{cmd:) countyfips(}{it:cofips}{cmd:)}{p_end}
 
-{pstd}Merging with {cmd:statecode} and {cmd:countycode}{p_end}
+{pstd}Merging with {cmd:statecode} and {cmd:countycode}, where {it:stcode} and {it:cocode} are the names of the variables containing the U.S. Census Bureau Census of Governments state and county codes{p_end}
 {phang2}{cmd:. countyfips, statecode(}{it:stcode}{cmd:) countcode(}{it:cocode}{cmd:)}{p_end}
 
 {pstd}By default, {cmd:countyfips} will generate a new variable, {cmd:_merge}, to indicate
@@ -87,10 +87,24 @@ This will keep matched observations and unmatched master observations.{p_end}
 
 {phang2}{cmd:. countyfips, fips(}{it:county}{cmd:) nogenerate}{p_end}
 
+{title:Data Examples:}
+
+{pstd}Merging with 5-digit FIPS codes{p_end}
+{phang2}{cmd: webuse texas_ue.dta}{p_end}
+{phang2}{cmd: countyfips, fips(fips)}{p_end}
+
+{pstd}Merging with 2-digit state FIPS and 3-digit county FIPS codes{p_end}
+{phang2}{cmd: webuse homicide1990.dta}{p_end}
+{phang2}{cmd: countyfips, countyfips(cfips) statefips(sfips)}{p_end}
+
 {title:Common Issues}
 
 {pstd}
-The first time you run {cmd:countyfips} it creates a data file that lives in your personal ado directory (by default, Windows: "c:\ado\"; macOS: "~/Documents/Stata/ado"). In versions of OSX 10.7 and newer, this folder may be protected, lacking sufficient read-write permissions for {cmd:countyfips} to create the necessary file. If you are receiving an error, please check your permissions. See {browse "https://github.com/cbgoodman/countyfips#Common-Issues":here} for more information.
+The first time you run {cmd:countyfips} it creates a data file that lives in your personal ado directory 
+(by default, Windows: "c:\ado\"; macOS: "~/Documents/Stata/ado"). In versions of OSX 10.7 and newer, 
+this folder may be protected, lacking sufficient read-write permissions for {cmd:countyfips} to 
+create the necessary file. If you are receiving an error, please check your permissions. 
+See {browse "https://github.com/cbgoodman/countyfips#Common-Issues":here} for more information.
 
 {title:Limitations}
 
